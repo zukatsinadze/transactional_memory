@@ -11,8 +11,8 @@ class Lock {
 
   public:
     Lock(int a) : lock(a) {}
-
-    Lock(const Lock &other) : lock(other.lock.load()) {}
+    Lock(Lock const&) = delete;
+    Lock& operator=(Lock const&) = delete;
 
     int get_version() {
         int version = lock.load();

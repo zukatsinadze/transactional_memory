@@ -12,7 +12,8 @@ class Word {
     uint64_t word;
     Lock lock;
     Word() : word(0), lock(0) {}
-    Word(const Word &other) : word(other.word), lock(other.lock) {}
+    Word(Word const&) = delete;
+    Word& operator=(Word const&) = delete;
 };
 
 /**
